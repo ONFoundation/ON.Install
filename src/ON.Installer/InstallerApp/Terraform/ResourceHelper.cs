@@ -33,6 +33,11 @@ namespace InstallerApp.Terraform
         {
             await Save("InstallerApp.Terraform.CreateServer.Digitalocean.", dir);
         }
+        
+        public async Task SaveCreateAWS(DirectoryInfo dir)
+        {
+            await Save("InstallerApp.Terraform.CreateServer.AWS.", dir);
+        }
 
         public async Task SaveDeployCMS(DirectoryInfo dir)
         {
