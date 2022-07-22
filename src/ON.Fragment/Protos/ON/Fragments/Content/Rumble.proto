@@ -1,0 +1,67 @@
+﻿syntax = "proto3";
+
+package ON.Fragments.Content;
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/empty.proto";
+
+service RumbleInterface {
+	rpc GetRumbleChannel (RumbleChannelRequest) returns (RumbleChannelResponse);		// Grab a Rumble Channel	 (Rumble API Method: Media.Search)
+	rpc GetRumbleVideo (RumbleVideoRequest) returns (RumbleVideoResponse);				// Grab a Rumble Channel	 (Rumble API Method: Media.Item)
+	rpc GetAllStoredData (EmptyRequest) returns (StoredDataResponse);
+	rpc GetStoredDataById (StoredDataRequest) returns (StoredDataResponse);
+}
+
+message RumbleVideo {
+	string Id = 1;
+	string Embed = 2;
+	string Title = 3;
+	bool IsPrivate = 4;
+	string Channel = 5;
+	string UploadDate = 6;
+}
+
+message EmptyRequest {}
+
+message StoredDataRequest {
+	string VideoId = 1;
+}
+
+message StoredDataResponse {
+	bool Success = 1;
+	string Msg = 2;
+	string Error = 3;
+	RumbleData Data = 4;
+}
+
+message RumbleData {
+	repeated RumbleVideo Videos = 1;
+}
+
+message RumbleVideoRequest {
+	string VideoId = 1;
+}
+
+message RumbleVideoResponse {
+	bool Success = 1;
+	string Msg = 2;
+	string Error = 3;
+	RumbleVideo Video = 4;
+}
+
+message DateFilter {
+	string BeginDate = 1;
+	string EndDate = 2;
+}
+
+message RumbleChannelRequest {
+	string ChannelId = 1;
+	DateFilter dates = 2;
+}
+
+message RumbleChannelResponse {
+	bool Success = 1;
+	string Msg = 2;
+	string Error = 3;
+	RumbleData Data = 4;
+}

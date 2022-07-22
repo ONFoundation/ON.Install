@@ -37,6 +37,21 @@
         <input class="form-control" asp-for="Author" />
         <span asp-validation-for="Author"></span>
     </div>
+
+    <!-- Button trigger modal -->
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary mr-1 ml-1" data-toggle="modal" data-target="#exampleModalCenter">
+          Upload Video To Rumble
+        </button>
+        <button type="button" class="btn btn-primary mr-1 ml-1" data-toggle="modal" data-target="#linkVideoModal">
+          Link A Video
+        </button>
+        <button type="button" class="btn btn-primary mr-1 ml-1" data-toggle="modal" data-target="#browseLinkedVideoModal">
+          Browse Linked Videos
+        </button>
+
+    </div>
+
     <div class="form-group">
         <label asp-for="Body"></label>
         <textarea rows="5" class="form-control" id="HtmlBodyPart_Html" asp-for="Body"></textarea>
@@ -44,6 +59,76 @@
 
     <button type="submit" class="btn btn-primary">Create</button>
 </form>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="color:black;" id="exampleModalLongTitle">Upload to Rumble</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <ul>
+              <li style="color:black;">1. Click <a href="https://www.rumble.com/upload.php" target="_blank" rel="noopener noreferrer">here</a></li>
+              <li style="color:black;">2. Follow their upload instructions</li>
+              <li style="color:black;">3. At the end, copy the embed code and paste in the article body</li>
+          </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="linkVideoModal" tabindex="-1" role="dialog" aria-labelledby="linkVideoModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="color:black;" id="exampleModalLongTitle">Link A Video</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <ul>
+              <li style="color:black;">1. Click <a href="https://www.rumble.com/upload.php" target="_blank" rel="noopener noreferrer">here</a></li>
+              <li style="color:black;">2. Follow their upload instructions</li>
+              <li style="color:black;">3. At the end, copy the embed code and paste in the article body</li>
+          </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="browseLinkedVideoModal" tabindex="-1" role="dialog" aria-labelledby="browseLinkedVideoModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="color:black;" id="exampleModalLongTitle">Browse Linked Videos</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <ul>
+              <li style="color:black;">1. Click <a href="https://www.rumble.com/upload.php" target="_blank" rel="noopener noreferrer">here</a></li>
+              <li style="color:black;">2. Follow their upload instructions</li>
+              <li style="color:black;">3. At the end, copy the embed code and paste in the article body</li>
+          </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 @section head
 {
@@ -88,4 +173,6 @@
             tagsToRemove: ['script', 'link']
         });
     </script>
+
+   
 }

@@ -1,0 +1,14 @@
+﻿syntax = "proto3";
+
+package ON.Fragments.CreatorDashboard.Settings;
+
+import "Protos/ON/Fragments/CreatorDashboard/Settings/CreatorSettings.proto";
+
+service SettingsManagerInterface 
+{
+	rpc GetCreatorSettings (Empty) returns (SettingsResponse) {}
+	rpc EditCreatorSettings (Empty) returns (SettingsResponse) {}
+	rpc RestoreDefaultSettings (Empty) returns (SettingsResponse) {}
+}
+
+message Empty {}

@@ -6,153 +6,165 @@
 #
 name: ONInstall
 ingress:
-- name: ingress
-  bindings:
-    - port: 80
-  rules:
-    - path: /auth
-      service: authweb
-      preservePath: true
-    - path: /changepassword
-      service: authweb
-      preservePath: true
-    - path: /login
-      service: authweb
-      preservePath: true
-    - path: /logout
-      service: authweb
-      preservePath: true
-    - path: /subscription/fake
-      service: fakepayweb
-      preservePath: true
-    - path: /subscription/paypal
-      service: paypalweb
-      preservePath: true
-    - path: /subscription/stripe
-      service: stripeweb
-      preservePath: true
-    - path: /subscription/pick
-      service: authweb
-      preservePath: true
-    - path: /register
-      service: authweb
-      preservePath: true
-    - path: /settings
-      service: authweb
-      preservePath: true
-    - path: /api/auth
-      service: authservice
-      preservePath: true
-    - path: /api/bitcoin
-      service: cryptoservice
-      preservePath: true
-    - path: /api/cms
-      service: cmsservice
-      preservePath: true
-    - path: /api/crypto
-      service: cryptoservice
-      preservePath: true
-    - path: /api/fakepay
-      service: fakepayservice
-      preservePath: true
-    - path: /
-      service: cmsweb
-      preservePath: true
+  - name: ingress
+    bindings:
+      - port: 80
+    rules:
+      - path: /auth
+        service: authweb
+        preservePath: true
+      - path: /changepassword
+        service: authweb
+        preservePath: true
+      - path: /login
+        service: authweb
+        preservePath: true
+      - path: /logout
+        service: authweb
+        preservePath: true
+      - path: /subscription/fake
+        service: fakepayweb
+        preservePath: true
+      - path: /subscription/paypal
+        service: paypalweb
+        preservePath: true
+      - path: /subscription/stripe
+        service: stripeweb
+        preservePath: true
+      - path: /subscription/pick
+        service: authweb
+        preservePath: true
+      - path: /register
+        service: authweb
+        preservePath: true
+      - path: /settings
+        service: authweb
+        preservePath: true
+      - path: /api/auth
+        service: authservice
+        preservePath: true
+      - path: /api/bitcoin
+        service: cryptoservice
+        preservePath: true
+      - path: /api/cms
+        service: cmsservice
+        preservePath: true
+      - path: /api/crypto
+        service: cryptoservice
+        preservePath: true
+      - path: /api/fakepay
+        service: fakepayservice
+        preservePath: true
+      - path: /
+        service: cmsweb
+        preservePath: true
 services:
-- name: cmsweb
-  project: ON.Content/SimpleCMS/Web/ON.Content.SimpleCMS.Web.csproj
-  env:
-  - JWT_PUB_KEY=eyJBZGRpdGlvbmFsRGF0YSI6e30sIkFsZyI6IkVTMjU2IiwiQ3J2IjoiUC0yNTYiLCJEIjpudWxsLCJEUCI6bnVsbCwiRFEiOm51bGwsIkUiOm51bGwsIksiOm51bGwsIktleUlkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS2V5T3BzIjpbXSwiS2lkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS3R5IjoiRUMiLCJOIjpudWxsLCJPdGgiOm51bGwsIlAiOm51bGwsIlEiOm51bGwsIlFJIjpudWxsLCJVc2UiOiJzaWciLCJYIjoiVDNCQzlQUlNkamFIcEV4VXF6Z1RpMWt5X2pvMG9YSHMtbVNoN0RsRVZFMCIsIlg1YyI6W10sIlg1dCI6bnVsbCwiWDV0UzI1NiI6bnVsbCwiWDV1IjpudWxsLCJZIjoiMjhmNEtLS0hyZ3dfM2Z4SlJsX1c0eExkcm5FUXVPQWNfZ0wyN0tNc0NSOCIsIktleVNpemUiOjI1NiwiSGFzUHJpdmF0ZUtleSI6ZmFsc2UsIkNyeXB0b1Byb3ZpZGVyRmFjdG9yeSI6eyJDcnlwdG9Qcm92aWRlckNhY2hlIjp7fSwiQ3VzdG9tQ3J5cHRvUHJvdmlkZXIiOm51bGwsIkNhY2hlU2lnbmF0dXJlUHJvdmlkZXJzIjp0cnVlfX0
-- name: cmsservice
-  project: ON.Content/SimpleCMS/Service/ON.Content.SimpleCMS.Service.csproj
-  env:
-  - JWT_PUB_KEY=eyJBZGRpdGlvbmFsRGF0YSI6e30sIkFsZyI6IkVTMjU2IiwiQ3J2IjoiUC0yNTYiLCJEIjpudWxsLCJEUCI6bnVsbCwiRFEiOm51bGwsIkUiOm51bGwsIksiOm51bGwsIktleUlkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS2V5T3BzIjpbXSwiS2lkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS3R5IjoiRUMiLCJOIjpudWxsLCJPdGgiOm51bGwsIlAiOm51bGwsIlEiOm51bGwsIlFJIjpudWxsLCJVc2UiOiJzaWciLCJYIjoiVDNCQzlQUlNkamFIcEV4VXF6Z1RpMWt5X2pvMG9YSHMtbVNoN0RsRVZFMCIsIlg1YyI6W10sIlg1dCI6bnVsbCwiWDV0UzI1NiI6bnVsbCwiWDV1IjpudWxsLCJZIjoiMjhmNEtLS0hyZ3dfM2Z4SlJsX1c0eExkcm5FUXVPQWNfZ0wyN0tNc0NSOCIsIktleVNpemUiOjI1NiwiSGFzUHJpdmF0ZUtleSI6ZmFsc2UsIkNyeXB0b1Byb3ZpZGVyRmFjdG9yeSI6eyJDcnlwdG9Qcm92aWRlckNhY2hlIjp7fSwiQ3VzdG9tQ3J5cHRvUHJvdmlkZXIiOm51bGwsIkNhY2hlU2lnbmF0dXJlUHJvdmlkZXJzIjp0cnVlfX0
-  volumes:
-  - source: tmpdata/cms/
-    target: /data
-  bindings:
-  - name: api
-  - name: grpc
-    port: 7002
-- name: authweb
-  project: ON.Authentication/SimpleAuth/Web/ON.Authentication.SimpleAuth.Web.csproj
-  env:
-  - JWT_PUB_KEY=eyJBZGRpdGlvbmFsRGF0YSI6e30sIkFsZyI6IkVTMjU2IiwiQ3J2IjoiUC0yNTYiLCJEIjpudWxsLCJEUCI6bnVsbCwiRFEiOm51bGwsIkUiOm51bGwsIksiOm51bGwsIktleUlkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS2V5T3BzIjpbXSwiS2lkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS3R5IjoiRUMiLCJOIjpudWxsLCJPdGgiOm51bGwsIlAiOm51bGwsIlEiOm51bGwsIlFJIjpudWxsLCJVc2UiOiJzaWciLCJYIjoiVDNCQzlQUlNkamFIcEV4VXF6Z1RpMWt5X2pvMG9YSHMtbVNoN0RsRVZFMCIsIlg1YyI6W10sIlg1dCI6bnVsbCwiWDV0UzI1NiI6bnVsbCwiWDV1IjpudWxsLCJZIjoiMjhmNEtLS0hyZ3dfM2Z4SlJsX1c0eExkcm5FUXVPQWNfZ0wyN0tNc0NSOCIsIktleVNpemUiOjI1NiwiSGFzUHJpdmF0ZUtleSI6ZmFsc2UsIkNyeXB0b1Byb3ZpZGVyRmFjdG9yeSI6eyJDcnlwdG9Qcm92aWRlckNhY2hlIjp7fSwiQ3VzdG9tQ3J5cHRvUHJvdmlkZXIiOm51bGwsIkNhY2hlU2lnbmF0dXJlUHJvdmlkZXJzIjp0cnVlfX0
-  - SUBSCRIPTION_TIERS=W3siTmFtZSI6Ik5vbmUiLCJWYWx1ZSI6MH0seyJOYW1lIjoiTWVtYmVyIiwiVmFsdWUiOjV9LHsiTmFtZSI6IkF3ZXNvbWUgTWVtYmVyIiwiVmFsdWUiOjEwfSx7Ik5hbWUiOiJCaWcgc3BlbmRlciIsIlZhbHVlIjoyMH0seyJOYW1lIjoiVGhlIEJlc3QhIiwiVmFsdWUiOjUwfSx7Ik5hbWUiOiJMb3JkIG9mIHRoZSBNYW5vciIsIlZhbHVlIjoxMDB9XQ
-- name: authservice
-  project: ON.Authentication/SimpleAuth/Service/ON.Authentication.SimpleAuth.Service.csproj
-  env:
-  - JWT_PRIV_KEY=eyJBZGRpdGlvbmFsRGF0YSI6e30sIkFsZyI6IkVTMjU2IiwiQ3J2IjoiUC0yNTYiLCJEIjoiT29QN3dhcUdtLU1fYU43N1dGSlZlXzc4Y2loMUZEX09hVmp5eHp6Q19SbyIsIkRQIjpudWxsLCJEUSI6bnVsbCwiRSI6bnVsbCwiSyI6bnVsbCwiS2V5SWQiOiJmNjBiMjNkNy1hN2JjLTQyY2MtYTRiNC1lN2JmMjQ4NmJjODkiLCJLZXlPcHMiOltdLCJLaWQiOiJmNjBiMjNkNy1hN2JjLTQyY2MtYTRiNC1lN2JmMjQ4NmJjODkiLCJLdHkiOiJFQyIsIk4iOm51bGwsIk90aCI6bnVsbCwiUCI6bnVsbCwiUSI6bnVsbCwiUUkiOm51bGwsIlVzZSI6InNpZyIsIlgiOiJUM0JDOVBSU2RqYUhwRXhVcXpnVGkxa3lfam8wb1hIcy1tU2g3RGxFVkUwIiwiWDVjIjpbXSwiWDV0IjpudWxsLCJYNXRTMjU2IjpudWxsLCJYNXUiOm51bGwsIlkiOiIyOGY0S0tLSHJnd18zZnhKUmxfVzR4TGRybkVRdU9BY19nTDI3S01zQ1I4IiwiS2V5U2l6ZSI6MjU2LCJIYXNQcml2YXRlS2V5Ijp0cnVlLCJDcnlwdG9Qcm92aWRlckZhY3RvcnkiOnsiQ3J5cHRvUHJvdmlkZXJDYWNoZSI6e30sIkN1c3RvbUNyeXB0b1Byb3ZpZGVyIjpudWxsLCJDYWNoZVNpZ25hdHVyZVByb3ZpZGVycyI6dHJ1ZX19
-  - JWT_PUB_KEY=eyJBZGRpdGlvbmFsRGF0YSI6e30sIkFsZyI6IkVTMjU2IiwiQ3J2IjoiUC0yNTYiLCJEIjpudWxsLCJEUCI6bnVsbCwiRFEiOm51bGwsIkUiOm51bGwsIksiOm51bGwsIktleUlkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS2V5T3BzIjpbXSwiS2lkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS3R5IjoiRUMiLCJOIjpudWxsLCJPdGgiOm51bGwsIlAiOm51bGwsIlEiOm51bGwsIlFJIjpudWxsLCJVc2UiOiJzaWciLCJYIjoiVDNCQzlQUlNkamFIcEV4VXF6Z1RpMWt5X2pvMG9YSHMtbVNoN0RsRVZFMCIsIlg1YyI6W10sIlg1dCI6bnVsbCwiWDV0UzI1NiI6bnVsbCwiWDV1IjpudWxsLCJZIjoiMjhmNEtLS0hyZ3dfM2Z4SlJsX1c0eExkcm5FUXVPQWNfZ0wyN0tNc0NSOCIsIktleVNpemUiOjI1NiwiSGFzUHJpdmF0ZUtleSI6ZmFsc2UsIkNyeXB0b1Byb3ZpZGVyRmFjdG9yeSI6eyJDcnlwdG9Qcm92aWRlckNhY2hlIjp7fSwiQ3VzdG9tQ3J5cHRvUHJvdmlkZXIiOm51bGwsIkNhY2hlU2lnbmF0dXJlUHJvdmlkZXJzIjp0cnVlfX0
-  volumes:
-  - source: tmpdata/auth/
-    target: /data
-  bindings:
-  - name: api
-  - name: grpc
-    port: 7001
-- name: fakepayweb
-  project: ON.Authorization/FakePayments/Web/ON.Authorization.FakePayments.Web.csproj
-  env:
-  - JWT_PUB_KEY=eyJBZGRpdGlvbmFsRGF0YSI6e30sIkFsZyI6IkVTMjU2IiwiQ3J2IjoiUC0yNTYiLCJEIjpudWxsLCJEUCI6bnVsbCwiRFEiOm51bGwsIkUiOm51bGwsIksiOm51bGwsIktleUlkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS2V5T3BzIjpbXSwiS2lkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS3R5IjoiRUMiLCJOIjpudWxsLCJPdGgiOm51bGwsIlAiOm51bGwsIlEiOm51bGwsIlFJIjpudWxsLCJVc2UiOiJzaWciLCJYIjoiVDNCQzlQUlNkamFIcEV4VXF6Z1RpMWt5X2pvMG9YSHMtbVNoN0RsRVZFMCIsIlg1YyI6W10sIlg1dCI6bnVsbCwiWDV0UzI1NiI6bnVsbCwiWDV1IjpudWxsLCJZIjoiMjhmNEtLS0hyZ3dfM2Z4SlJsX1c0eExkcm5FUXVPQWNfZ0wyN0tNc0NSOCIsIktleVNpemUiOjI1NiwiSGFzUHJpdmF0ZUtleSI6ZmFsc2UsIkNyeXB0b1Byb3ZpZGVyRmFjdG9yeSI6eyJDcnlwdG9Qcm92aWRlckNhY2hlIjp7fSwiQ3VzdG9tQ3J5cHRvUHJvdmlkZXIiOm51bGwsIkNhY2hlU2lnbmF0dXJlUHJvdmlkZXJzIjp0cnVlfX0
-- name: fakepayservice
-  project: ON.Authorization/FakePayments/Service/ON.Authorization.FakePayments.Service.csproj
-  env:
-  - JWT_PUB_KEY=eyJBZGRpdGlvbmFsRGF0YSI6e30sIkFsZyI6IkVTMjU2IiwiQ3J2IjoiUC0yNTYiLCJEIjpudWxsLCJEUCI6bnVsbCwiRFEiOm51bGwsIkUiOm51bGwsIksiOm51bGwsIktleUlkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS2V5T3BzIjpbXSwiS2lkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS3R5IjoiRUMiLCJOIjpudWxsLCJPdGgiOm51bGwsIlAiOm51bGwsIlEiOm51bGwsIlFJIjpudWxsLCJVc2UiOiJzaWciLCJYIjoiVDNCQzlQUlNkamFIcEV4VXF6Z1RpMWt5X2pvMG9YSHMtbVNoN0RsRVZFMCIsIlg1YyI6W10sIlg1dCI6bnVsbCwiWDV0UzI1NiI6bnVsbCwiWDV1IjpudWxsLCJZIjoiMjhmNEtLS0hyZ3dfM2Z4SlJsX1c0eExkcm5FUXVPQWNfZ0wyN0tNc0NSOCIsIktleVNpemUiOjI1NiwiSGFzUHJpdmF0ZUtleSI6ZmFsc2UsIkNyeXB0b1Byb3ZpZGVyRmFjdG9yeSI6eyJDcnlwdG9Qcm92aWRlckNhY2hlIjp7fSwiQ3VzdG9tQ3J5cHRvUHJvdmlkZXIiOm51bGwsIkNhY2hlU2lnbmF0dXJlUHJvdmlkZXJzIjp0cnVlfX0
-  - SUBSCRIPTION_TIERS=W3siTmFtZSI6Ik5vbmUiLCJWYWx1ZSI6MH0seyJOYW1lIjoiTWVtYmVyIiwiVmFsdWUiOjV9LHsiTmFtZSI6IkF3ZXNvbWUgTWVtYmVyIiwiVmFsdWUiOjEwfSx7Ik5hbWUiOiJCaWcgc3BlbmRlciIsIlZhbHVlIjoyMH0seyJOYW1lIjoiVGhlIEJlc3QhIiwiVmFsdWUiOjUwfSx7Ik5hbWUiOiJMb3JkIG9mIHRoZSBNYW5vciIsIlZhbHVlIjoxMDB9XQ
-  volumes:
-  - source: tmpdata/fakepay/
-    target: /data
-  bindings:
-  - name: api
-  - name: grpc
-    port: 7003
-- name: paypalweb
-  project: ON.Authorization/Paypal/Web/ON.Authorization.Paypal.Web.csproj
-  env:
-  - JWT_PUB_KEY=eyJBZGRpdGlvbmFsRGF0YSI6e30sIkFsZyI6IkVTMjU2IiwiQ3J2IjoiUC0yNTYiLCJEIjpudWxsLCJEUCI6bnVsbCwiRFEiOm51bGwsIkUiOm51bGwsIksiOm51bGwsIktleUlkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS2V5T3BzIjpbXSwiS2lkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS3R5IjoiRUMiLCJOIjpudWxsLCJPdGgiOm51bGwsIlAiOm51bGwsIlEiOm51bGwsIlFJIjpudWxsLCJVc2UiOiJzaWciLCJYIjoiVDNCQzlQUlNkamFIcEV4VXF6Z1RpMWt5X2pvMG9YSHMtbVNoN0RsRVZFMCIsIlg1YyI6W10sIlg1dCI6bnVsbCwiWDV0UzI1NiI6bnVsbCwiWDV1IjpudWxsLCJZIjoiMjhmNEtLS0hyZ3dfM2Z4SlJsX1c0eExkcm5FUXVPQWNfZ0wyN0tNc0NSOCIsIktleVNpemUiOjI1NiwiSGFzUHJpdmF0ZUtleSI6ZmFsc2UsIkNyeXB0b1Byb3ZpZGVyRmFjdG9yeSI6eyJDcnlwdG9Qcm92aWRlckNhY2hlIjp7fSwiQ3VzdG9tQ3J5cHRvUHJvdmlkZXIiOm51bGwsIkNhY2hlU2lnbmF0dXJlUHJvdmlkZXJzIjp0cnVlfX0
-- name: paypalservice
-  project: ON.Authorization/Paypal/Service/ON.Authorization.Paypal.Service.csproj
-  env:
-  - JWT_PUB_KEY=eyJBZGRpdGlvbmFsRGF0YSI6e30sIkFsZyI6IkVTMjU2IiwiQ3J2IjoiUC0yNTYiLCJEIjpudWxsLCJEUCI6bnVsbCwiRFEiOm51bGwsIkUiOm51bGwsIksiOm51bGwsIktleUlkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS2V5T3BzIjpbXSwiS2lkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS3R5IjoiRUMiLCJOIjpudWxsLCJPdGgiOm51bGwsIlAiOm51bGwsIlEiOm51bGwsIlFJIjpudWxsLCJVc2UiOiJzaWciLCJYIjoiVDNCQzlQUlNkamFIcEV4VXF6Z1RpMWt5X2pvMG9YSHMtbVNoN0RsRVZFMCIsIlg1YyI6W10sIlg1dCI6bnVsbCwiWDV0UzI1NiI6bnVsbCwiWDV1IjpudWxsLCJZIjoiMjhmNEtLS0hyZ3dfM2Z4SlJsX1c0eExkcm5FUXVPQWNfZ0wyN0tNc0NSOCIsIktleVNpemUiOjI1NiwiSGFzUHJpdmF0ZUtleSI6ZmFsc2UsIkNyeXB0b1Byb3ZpZGVyRmFjdG9yeSI6eyJDcnlwdG9Qcm92aWRlckNhY2hlIjp7fSwiQ3VzdG9tQ3J5cHRvUHJvdmlkZXIiOm51bGwsIkNhY2hlU2lnbmF0dXJlUHJvdmlkZXJzIjp0cnVlfX0
-  - SUBSCRIPTION_TIERS=W3siTmFtZSI6Ik5vbmUiLCJWYWx1ZSI6MH0seyJOYW1lIjoiTWVtYmVyIiwiVmFsdWUiOjV9LHsiTmFtZSI6IkF3ZXNvbWUgTWVtYmVyIiwiVmFsdWUiOjEwfSx7Ik5hbWUiOiJCaWcgc3BlbmRlciIsIlZhbHVlIjoyMH0seyJOYW1lIjoiVGhlIEJlc3QhIiwiVmFsdWUiOjUwfSx7Ik5hbWUiOiJMb3JkIG9mIHRoZSBNYW5vciIsIlZhbHVlIjoxMDB9XQ
-  volumes:
-  - source: tmpdata/paypal/
-    target: /data
-  bindings:
-  - port: 7004
-- name: stripeweb
-  project: ON.Authorization/Stripe/Web/ON.Authorization.Stripe.Web.csproj
-  env:
-  - JWT_PUB_KEY=eyJBZGRpdGlvbmFsRGF0YSI6e30sIkFsZyI6IkVTMjU2IiwiQ3J2IjoiUC0yNTYiLCJEIjpudWxsLCJEUCI6bnVsbCwiRFEiOm51bGwsIkUiOm51bGwsIksiOm51bGwsIktleUlkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS2V5T3BzIjpbXSwiS2lkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS3R5IjoiRUMiLCJOIjpudWxsLCJPdGgiOm51bGwsIlAiOm51bGwsIlEiOm51bGwsIlFJIjpudWxsLCJVc2UiOiJzaWciLCJYIjoiVDNCQzlQUlNkamFIcEV4VXF6Z1RpMWt5X2pvMG9YSHMtbVNoN0RsRVZFMCIsIlg1YyI6W10sIlg1dCI6bnVsbCwiWDV0UzI1NiI6bnVsbCwiWDV1IjpudWxsLCJZIjoiMjhmNEtLS0hyZ3dfM2Z4SlJsX1c0eExkcm5FUXVPQWNfZ0wyN0tNc0NSOCIsIktleVNpemUiOjI1NiwiSGFzUHJpdmF0ZUtleSI6ZmFsc2UsIkNyeXB0b1Byb3ZpZGVyRmFjdG9yeSI6eyJDcnlwdG9Qcm92aWRlckNhY2hlIjp7fSwiQ3VzdG9tQ3J5cHRvUHJvdmlkZXIiOm51bGwsIkNhY2hlU2lnbmF0dXJlUHJvdmlkZXJzIjp0cnVlfX0
-- name: stripeservice
-  project: ON.Authorization/Stripe/Service/ON.Authorization.Stripe.Service.csproj
-  env:
-  - JWT_PUB_KEY=eyJBZGRpdGlvbmFsRGF0YSI6e30sIkFsZyI6IkVTMjU2IiwiQ3J2IjoiUC0yNTYiLCJEIjpudWxsLCJEUCI6bnVsbCwiRFEiOm51bGwsIkUiOm51bGwsIksiOm51bGwsIktleUlkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS2V5T3BzIjpbXSwiS2lkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS3R5IjoiRUMiLCJOIjpudWxsLCJPdGgiOm51bGwsIlAiOm51bGwsIlEiOm51bGwsIlFJIjpudWxsLCJVc2UiOiJzaWciLCJYIjoiVDNCQzlQUlNkamFIcEV4VXF6Z1RpMWt5X2pvMG9YSHMtbVNoN0RsRVZFMCIsIlg1YyI6W10sIlg1dCI6bnVsbCwiWDV0UzI1NiI6bnVsbCwiWDV1IjpudWxsLCJZIjoiMjhmNEtLS0hyZ3dfM2Z4SlJsX1c0eExkcm5FUXVPQWNfZ0wyN0tNc0NSOCIsIktleVNpemUiOjI1NiwiSGFzUHJpdmF0ZUtleSI6ZmFsc2UsIkNyeXB0b1Byb3ZpZGVyRmFjdG9yeSI6eyJDcnlwdG9Qcm92aWRlckNhY2hlIjp7fSwiQ3VzdG9tQ3J5cHRvUHJvdmlkZXIiOm51bGwsIkNhY2hlU2lnbmF0dXJlUHJvdmlkZXJzIjp0cnVlfX0
-  - SUBSCRIPTION_TIERS=W3siTmFtZSI6Ik5vbmUiLCJWYWx1ZSI6MH0seyJOYW1lIjoiTWVtYmVyIiwiVmFsdWUiOjV9LHsiTmFtZSI6IkF3ZXNvbWUgTWVtYmVyIiwiVmFsdWUiOjEwfSx7Ik5hbWUiOiJCaWcgc3BlbmRlciIsIlZhbHVlIjoyMH0seyJOYW1lIjoiVGhlIEJlc3QhIiwiVmFsdWUiOjUwfSx7Ik5hbWUiOiJMb3JkIG9mIHRoZSBNYW5vciIsIlZhbHVlIjoxMDB9XQ
-  volumes:
-  - source: tmpdata/stripe/
-    target: /data
-  bindings:
-  - port: 7005
-- name: cryptoservice
-  project: ON.Authorization/Crypto/Service/ON.Authorization.Crypto.Service.csproj
-  env:
-  - JWT_PUB_KEY=eyJBZGRpdGlvbmFsRGF0YSI6e30sIkFsZyI6IkVTMjU2IiwiQ3J2IjoiUC0yNTYiLCJEIjpudWxsLCJEUCI6bnVsbCwiRFEiOm51bGwsIkUiOm51bGwsIksiOm51bGwsIktleUlkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS2V5T3BzIjpbXSwiS2lkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS3R5IjoiRUMiLCJOIjpudWxsLCJPdGgiOm51bGwsIlAiOm51bGwsIlEiOm51bGwsIlFJIjpudWxsLCJVc2UiOiJzaWciLCJYIjoiVDNCQzlQUlNkamFIcEV4VXF6Z1RpMWt5X2pvMG9YSHMtbVNoN0RsRVZFMCIsIlg1YyI6W10sIlg1dCI6bnVsbCwiWDV0UzI1NiI6bnVsbCwiWDV1IjpudWxsLCJZIjoiMjhmNEtLS0hyZ3dfM2Z4SlJsX1c0eExkcm5FUXVPQWNfZ0wyN0tNc0NSOCIsIktleVNpemUiOjI1NiwiSGFzUHJpdmF0ZUtleSI6ZmFsc2UsIkNyeXB0b1Byb3ZpZGVyRmFjdG9yeSI6eyJDcnlwdG9Qcm92aWRlckNhY2hlIjp7fSwiQ3VzdG9tQ3J5cHRvUHJvdmlkZXIiOm51bGwsIkNhY2hlU2lnbmF0dXJlUHJvdmlkZXJzIjp0cnVlfX0
-  - SUBSCRIPTION_TIERS=W3siTmFtZSI6Ik5vbmUiLCJWYWx1ZSI6MH0seyJOYW1lIjoiTWVtYmVyIiwiVmFsdWUiOjV9LHsiTmFtZSI6IkF3ZXNvbWUgTWVtYmVyIiwiVmFsdWUiOjEwfSx7Ik5hbWUiOiJCaWcgc3BlbmRlciIsIlZhbHVlIjoyMH0seyJOYW1lIjoiVGhlIEJlc3QhIiwiVmFsdWUiOjUwfSx7Ik5hbWUiOiJMb3JkIG9mIHRoZSBNYW5vciIsIlZhbHVlIjoxMDB9XQ
-  volumes:
-  - source: tmpdata/crypto/
-    target: /data
-  bindings:
-  - name: api
-  - name: grpc
-    port: 7006
+  - name: cmsweb
+    project: ON.Content/SimpleCMS/Web/ON.Content.SimpleCMS.Web.csproj
+    env:
+      - JWT_PUB_KEY=eyJBZGRpdGlvbmFsRGF0YSI6e30sIkFsZyI6IkVTMjU2IiwiQ3J2IjoiUC0yNTYiLCJEIjpudWxsLCJEUCI6bnVsbCwiRFEiOm51bGwsIkUiOm51bGwsIksiOm51bGwsIktleUlkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS2V5T3BzIjpbXSwiS2lkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS3R5IjoiRUMiLCJOIjpudWxsLCJPdGgiOm51bGwsIlAiOm51bGwsIlEiOm51bGwsIlFJIjpudWxsLCJVc2UiOiJzaWciLCJYIjoiVDNCQzlQUlNkamFIcEV4VXF6Z1RpMWt5X2pvMG9YSHMtbVNoN0RsRVZFMCIsIlg1YyI6W10sIlg1dCI6bnVsbCwiWDV0UzI1NiI6bnVsbCwiWDV1IjpudWxsLCJZIjoiMjhmNEtLS0hyZ3dfM2Z4SlJsX1c0eExkcm5FUXVPQWNfZ0wyN0tNc0NSOCIsIktleVNpemUiOjI1NiwiSGFzUHJpdmF0ZUtleSI6ZmFsc2UsIkNyeXB0b1Byb3ZpZGVyRmFjdG9yeSI6eyJDcnlwdG9Qcm92aWRlckNhY2hlIjp7fSwiQ3VzdG9tQ3J5cHRvUHJvdmlkZXIiOm51bGwsIkNhY2hlU2lnbmF0dXJlUHJvdmlkZXJzIjp0cnVlfX0
+  - name: cmsservice
+    project: ON.Content/SimpleCMS/Service/ON.Content.SimpleCMS.Service.csproj
+    env:
+      - JWT_PUB_KEY=eyJBZGRpdGlvbmFsRGF0YSI6e30sIkFsZyI6IkVTMjU2IiwiQ3J2IjoiUC0yNTYiLCJEIjpudWxsLCJEUCI6bnVsbCwiRFEiOm51bGwsIkUiOm51bGwsIksiOm51bGwsIktleUlkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS2V5T3BzIjpbXSwiS2lkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS3R5IjoiRUMiLCJOIjpudWxsLCJPdGgiOm51bGwsIlAiOm51bGwsIlEiOm51bGwsIlFJIjpudWxsLCJVc2UiOiJzaWciLCJYIjoiVDNCQzlQUlNkamFIcEV4VXF6Z1RpMWt5X2pvMG9YSHMtbVNoN0RsRVZFMCIsIlg1YyI6W10sIlg1dCI6bnVsbCwiWDV0UzI1NiI6bnVsbCwiWDV1IjpudWxsLCJZIjoiMjhmNEtLS0hyZ3dfM2Z4SlJsX1c0eExkcm5FUXVPQWNfZ0wyN0tNc0NSOCIsIktleVNpemUiOjI1NiwiSGFzUHJpdmF0ZUtleSI6ZmFsc2UsIkNyeXB0b1Byb3ZpZGVyRmFjdG9yeSI6eyJDcnlwdG9Qcm92aWRlckNhY2hlIjp7fSwiQ3VzdG9tQ3J5cHRvUHJvdmlkZXIiOm51bGwsIkNhY2hlU2lnbmF0dXJlUHJvdmlkZXJzIjp0cnVlfX0
+    volumes:
+      - source: tmpdata/cms/
+        target: /data
+    bindings:
+      - name: api
+      - name: grpc
+        port: 7002
+  - name: authweb
+    project: ON.Authentication/SimpleAuth/Web/ON.Authentication.SimpleAuth.Web.csproj
+    env:
+      - JWT_PUB_KEY=eyJBZGRpdGlvbmFsRGF0YSI6e30sIkFsZyI6IkVTMjU2IiwiQ3J2IjoiUC0yNTYiLCJEIjpudWxsLCJEUCI6bnVsbCwiRFEiOm51bGwsIkUiOm51bGwsIksiOm51bGwsIktleUlkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS2V5T3BzIjpbXSwiS2lkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS3R5IjoiRUMiLCJOIjpudWxsLCJPdGgiOm51bGwsIlAiOm51bGwsIlEiOm51bGwsIlFJIjpudWxsLCJVc2UiOiJzaWciLCJYIjoiVDNCQzlQUlNkamFIcEV4VXF6Z1RpMWt5X2pvMG9YSHMtbVNoN0RsRVZFMCIsIlg1YyI6W10sIlg1dCI6bnVsbCwiWDV0UzI1NiI6bnVsbCwiWDV1IjpudWxsLCJZIjoiMjhmNEtLS0hyZ3dfM2Z4SlJsX1c0eExkcm5FUXVPQWNfZ0wyN0tNc0NSOCIsIktleVNpemUiOjI1NiwiSGFzUHJpdmF0ZUtleSI6ZmFsc2UsIkNyeXB0b1Byb3ZpZGVyRmFjdG9yeSI6eyJDcnlwdG9Qcm92aWRlckNhY2hlIjp7fSwiQ3VzdG9tQ3J5cHRvUHJvdmlkZXIiOm51bGwsIkNhY2hlU2lnbmF0dXJlUHJvdmlkZXJzIjp0cnVlfX0
+      - SUBSCRIPTION_TIERS=W3siTmFtZSI6Ik5vbmUiLCJWYWx1ZSI6MH0seyJOYW1lIjoiTWVtYmVyIiwiVmFsdWUiOjV9LHsiTmFtZSI6IkF3ZXNvbWUgTWVtYmVyIiwiVmFsdWUiOjEwfSx7Ik5hbWUiOiJCaWcgc3BlbmRlciIsIlZhbHVlIjoyMH0seyJOYW1lIjoiVGhlIEJlc3QhIiwiVmFsdWUiOjUwfSx7Ik5hbWUiOiJMb3JkIG9mIHRoZSBNYW5vciIsIlZhbHVlIjoxMDB9XQ
+  - name: authservice
+    project: ON.Authentication/SimpleAuth/Service/ON.Authentication.SimpleAuth.Service.csproj
+    env:
+      - JWT_PRIV_KEY=eyJBZGRpdGlvbmFsRGF0YSI6e30sIkFsZyI6IkVTMjU2IiwiQ3J2IjoiUC0yNTYiLCJEIjoiT29QN3dhcUdtLU1fYU43N1dGSlZlXzc4Y2loMUZEX09hVmp5eHp6Q19SbyIsIkRQIjpudWxsLCJEUSI6bnVsbCwiRSI6bnVsbCwiSyI6bnVsbCwiS2V5SWQiOiJmNjBiMjNkNy1hN2JjLTQyY2MtYTRiNC1lN2JmMjQ4NmJjODkiLCJLZXlPcHMiOltdLCJLaWQiOiJmNjBiMjNkNy1hN2JjLTQyY2MtYTRiNC1lN2JmMjQ4NmJjODkiLCJLdHkiOiJFQyIsIk4iOm51bGwsIk90aCI6bnVsbCwiUCI6bnVsbCwiUSI6bnVsbCwiUUkiOm51bGwsIlVzZSI6InNpZyIsIlgiOiJUM0JDOVBSU2RqYUhwRXhVcXpnVGkxa3lfam8wb1hIcy1tU2g3RGxFVkUwIiwiWDVjIjpbXSwiWDV0IjpudWxsLCJYNXRTMjU2IjpudWxsLCJYNXUiOm51bGwsIlkiOiIyOGY0S0tLSHJnd18zZnhKUmxfVzR4TGRybkVRdU9BY19nTDI3S01zQ1I4IiwiS2V5U2l6ZSI6MjU2LCJIYXNQcml2YXRlS2V5Ijp0cnVlLCJDcnlwdG9Qcm92aWRlckZhY3RvcnkiOnsiQ3J5cHRvUHJvdmlkZXJDYWNoZSI6e30sIkN1c3RvbUNyeXB0b1Byb3ZpZGVyIjpudWxsLCJDYWNoZVNpZ25hdHVyZVByb3ZpZGVycyI6dHJ1ZX19
+      - JWT_PUB_KEY=eyJBZGRpdGlvbmFsRGF0YSI6e30sIkFsZyI6IkVTMjU2IiwiQ3J2IjoiUC0yNTYiLCJEIjpudWxsLCJEUCI6bnVsbCwiRFEiOm51bGwsIkUiOm51bGwsIksiOm51bGwsIktleUlkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS2V5T3BzIjpbXSwiS2lkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS3R5IjoiRUMiLCJOIjpudWxsLCJPdGgiOm51bGwsIlAiOm51bGwsIlEiOm51bGwsIlFJIjpudWxsLCJVc2UiOiJzaWciLCJYIjoiVDNCQzlQUlNkamFIcEV4VXF6Z1RpMWt5X2pvMG9YSHMtbVNoN0RsRVZFMCIsIlg1YyI6W10sIlg1dCI6bnVsbCwiWDV0UzI1NiI6bnVsbCwiWDV1IjpudWxsLCJZIjoiMjhmNEtLS0hyZ3dfM2Z4SlJsX1c0eExkcm5FUXVPQWNfZ0wyN0tNc0NSOCIsIktleVNpemUiOjI1NiwiSGFzUHJpdmF0ZUtleSI6ZmFsc2UsIkNyeXB0b1Byb3ZpZGVyRmFjdG9yeSI6eyJDcnlwdG9Qcm92aWRlckNhY2hlIjp7fSwiQ3VzdG9tQ3J5cHRvUHJvdmlkZXIiOm51bGwsIkNhY2hlU2lnbmF0dXJlUHJvdmlkZXJzIjp0cnVlfX0
+    volumes:
+      - source: tmpdata/auth/
+        target: /data
+    bindings:
+      - name: api
+      - name: grpc
+        port: 7001
+  - name: fakepayweb
+    project: ON.Authorization/FakePayments/Web/ON.Authorization.FakePayments.Web.csproj
+    env:
+      - JWT_PUB_KEY=eyJBZGRpdGlvbmFsRGF0YSI6e30sIkFsZyI6IkVTMjU2IiwiQ3J2IjoiUC0yNTYiLCJEIjpudWxsLCJEUCI6bnVsbCwiRFEiOm51bGwsIkUiOm51bGwsIksiOm51bGwsIktleUlkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS2V5T3BzIjpbXSwiS2lkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS3R5IjoiRUMiLCJOIjpudWxsLCJPdGgiOm51bGwsIlAiOm51bGwsIlEiOm51bGwsIlFJIjpudWxsLCJVc2UiOiJzaWciLCJYIjoiVDNCQzlQUlNkamFIcEV4VXF6Z1RpMWt5X2pvMG9YSHMtbVNoN0RsRVZFMCIsIlg1YyI6W10sIlg1dCI6bnVsbCwiWDV0UzI1NiI6bnVsbCwiWDV1IjpudWxsLCJZIjoiMjhmNEtLS0hyZ3dfM2Z4SlJsX1c0eExkcm5FUXVPQWNfZ0wyN0tNc0NSOCIsIktleVNpemUiOjI1NiwiSGFzUHJpdmF0ZUtleSI6ZmFsc2UsIkNyeXB0b1Byb3ZpZGVyRmFjdG9yeSI6eyJDcnlwdG9Qcm92aWRlckNhY2hlIjp7fSwiQ3VzdG9tQ3J5cHRvUHJvdmlkZXIiOm51bGwsIkNhY2hlU2lnbmF0dXJlUHJvdmlkZXJzIjp0cnVlfX0
+  - name: fakepayservice
+    project: ON.Authorization/FakePayments/Service/ON.Authorization.FakePayments.Service.csproj
+    env:
+      - JWT_PUB_KEY=eyJBZGRpdGlvbmFsRGF0YSI6e30sIkFsZyI6IkVTMjU2IiwiQ3J2IjoiUC0yNTYiLCJEIjpudWxsLCJEUCI6bnVsbCwiRFEiOm51bGwsIkUiOm51bGwsIksiOm51bGwsIktleUlkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS2V5T3BzIjpbXSwiS2lkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS3R5IjoiRUMiLCJOIjpudWxsLCJPdGgiOm51bGwsIlAiOm51bGwsIlEiOm51bGwsIlFJIjpudWxsLCJVc2UiOiJzaWciLCJYIjoiVDNCQzlQUlNkamFIcEV4VXF6Z1RpMWt5X2pvMG9YSHMtbVNoN0RsRVZFMCIsIlg1YyI6W10sIlg1dCI6bnVsbCwiWDV0UzI1NiI6bnVsbCwiWDV1IjpudWxsLCJZIjoiMjhmNEtLS0hyZ3dfM2Z4SlJsX1c0eExkcm5FUXVPQWNfZ0wyN0tNc0NSOCIsIktleVNpemUiOjI1NiwiSGFzUHJpdmF0ZUtleSI6ZmFsc2UsIkNyeXB0b1Byb3ZpZGVyRmFjdG9yeSI6eyJDcnlwdG9Qcm92aWRlckNhY2hlIjp7fSwiQ3VzdG9tQ3J5cHRvUHJvdmlkZXIiOm51bGwsIkNhY2hlU2lnbmF0dXJlUHJvdmlkZXJzIjp0cnVlfX0
+      - SUBSCRIPTION_TIERS=W3siTmFtZSI6Ik5vbmUiLCJWYWx1ZSI6MH0seyJOYW1lIjoiTWVtYmVyIiwiVmFsdWUiOjV9LHsiTmFtZSI6IkF3ZXNvbWUgTWVtYmVyIiwiVmFsdWUiOjEwfSx7Ik5hbWUiOiJCaWcgc3BlbmRlciIsIlZhbHVlIjoyMH0seyJOYW1lIjoiVGhlIEJlc3QhIiwiVmFsdWUiOjUwfSx7Ik5hbWUiOiJMb3JkIG9mIHRoZSBNYW5vciIsIlZhbHVlIjoxMDB9XQ
+    volumes:
+      - source: tmpdata/fakepay/
+        target: /data
+    bindings:
+      - name: api
+      - name: grpc
+        port: 7003
+  - name: paypalweb
+    project: ON.Authorization/Paypal/Web/ON.Authorization.Paypal.Web.csproj
+    env:
+      - JWT_PUB_KEY=eyJBZGRpdGlvbmFsRGF0YSI6e30sIkFsZyI6IkVTMjU2IiwiQ3J2IjoiUC0yNTYiLCJEIjpudWxsLCJEUCI6bnVsbCwiRFEiOm51bGwsIkUiOm51bGwsIksiOm51bGwsIktleUlkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS2V5T3BzIjpbXSwiS2lkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS3R5IjoiRUMiLCJOIjpudWxsLCJPdGgiOm51bGwsIlAiOm51bGwsIlEiOm51bGwsIlFJIjpudWxsLCJVc2UiOiJzaWciLCJYIjoiVDNCQzlQUlNkamFIcEV4VXF6Z1RpMWt5X2pvMG9YSHMtbVNoN0RsRVZFMCIsIlg1YyI6W10sIlg1dCI6bnVsbCwiWDV0UzI1NiI6bnVsbCwiWDV1IjpudWxsLCJZIjoiMjhmNEtLS0hyZ3dfM2Z4SlJsX1c0eExkcm5FUXVPQWNfZ0wyN0tNc0NSOCIsIktleVNpemUiOjI1NiwiSGFzUHJpdmF0ZUtleSI6ZmFsc2UsIkNyeXB0b1Byb3ZpZGVyRmFjdG9yeSI6eyJDcnlwdG9Qcm92aWRlckNhY2hlIjp7fSwiQ3VzdG9tQ3J5cHRvUHJvdmlkZXIiOm51bGwsIkNhY2hlU2lnbmF0dXJlUHJvdmlkZXJzIjp0cnVlfX0
+  - name: paypalservice
+    project: ON.Authorization/Paypal/Service/ON.Authorization.Paypal.Service.csproj
+    env:
+      - JWT_PUB_KEY=eyJBZGRpdGlvbmFsRGF0YSI6e30sIkFsZyI6IkVTMjU2IiwiQ3J2IjoiUC0yNTYiLCJEIjpudWxsLCJEUCI6bnVsbCwiRFEiOm51bGwsIkUiOm51bGwsIksiOm51bGwsIktleUlkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS2V5T3BzIjpbXSwiS2lkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS3R5IjoiRUMiLCJOIjpudWxsLCJPdGgiOm51bGwsIlAiOm51bGwsIlEiOm51bGwsIlFJIjpudWxsLCJVc2UiOiJzaWciLCJYIjoiVDNCQzlQUlNkamFIcEV4VXF6Z1RpMWt5X2pvMG9YSHMtbVNoN0RsRVZFMCIsIlg1YyI6W10sIlg1dCI6bnVsbCwiWDV0UzI1NiI6bnVsbCwiWDV1IjpudWxsLCJZIjoiMjhmNEtLS0hyZ3dfM2Z4SlJsX1c0eExkcm5FUXVPQWNfZ0wyN0tNc0NSOCIsIktleVNpemUiOjI1NiwiSGFzUHJpdmF0ZUtleSI6ZmFsc2UsIkNyeXB0b1Byb3ZpZGVyRmFjdG9yeSI6eyJDcnlwdG9Qcm92aWRlckNhY2hlIjp7fSwiQ3VzdG9tQ3J5cHRvUHJvdmlkZXIiOm51bGwsIkNhY2hlU2lnbmF0dXJlUHJvdmlkZXJzIjp0cnVlfX0
+      - SUBSCRIPTION_TIERS=W3siTmFtZSI6Ik5vbmUiLCJWYWx1ZSI6MH0seyJOYW1lIjoiTWVtYmVyIiwiVmFsdWUiOjV9LHsiTmFtZSI6IkF3ZXNvbWUgTWVtYmVyIiwiVmFsdWUiOjEwfSx7Ik5hbWUiOiJCaWcgc3BlbmRlciIsIlZhbHVlIjoyMH0seyJOYW1lIjoiVGhlIEJlc3QhIiwiVmFsdWUiOjUwfSx7Ik5hbWUiOiJMb3JkIG9mIHRoZSBNYW5vciIsIlZhbHVlIjoxMDB9XQ
+    volumes:
+      - source: tmpdata/paypal/
+        target: /data
+    bindings:
+      - port: 7004
+  - name: stripeweb
+    project: ON.Authorization/Stripe/Web/ON.Authorization.Stripe.Web.csproj
+    env:
+      - JWT_PUB_KEY=eyJBZGRpdGlvbmFsRGF0YSI6e30sIkFsZyI6IkVTMjU2IiwiQ3J2IjoiUC0yNTYiLCJEIjpudWxsLCJEUCI6bnVsbCwiRFEiOm51bGwsIkUiOm51bGwsIksiOm51bGwsIktleUlkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS2V5T3BzIjpbXSwiS2lkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS3R5IjoiRUMiLCJOIjpudWxsLCJPdGgiOm51bGwsIlAiOm51bGwsIlEiOm51bGwsIlFJIjpudWxsLCJVc2UiOiJzaWciLCJYIjoiVDNCQzlQUlNkamFIcEV4VXF6Z1RpMWt5X2pvMG9YSHMtbVNoN0RsRVZFMCIsIlg1YyI6W10sIlg1dCI6bnVsbCwiWDV0UzI1NiI6bnVsbCwiWDV1IjpudWxsLCJZIjoiMjhmNEtLS0hyZ3dfM2Z4SlJsX1c0eExkcm5FUXVPQWNfZ0wyN0tNc0NSOCIsIktleVNpemUiOjI1NiwiSGFzUHJpdmF0ZUtleSI6ZmFsc2UsIkNyeXB0b1Byb3ZpZGVyRmFjdG9yeSI6eyJDcnlwdG9Qcm92aWRlckNhY2hlIjp7fSwiQ3VzdG9tQ3J5cHRvUHJvdmlkZXIiOm51bGwsIkNhY2hlU2lnbmF0dXJlUHJvdmlkZXJzIjp0cnVlfX0
+  - name: stripeservice
+    project: ON.Authorization/Stripe/Service/ON.Authorization.Stripe.Service.csproj
+    env:
+      - JWT_PUB_KEY=eyJBZGRpdGlvbmFsRGF0YSI6e30sIkFsZyI6IkVTMjU2IiwiQ3J2IjoiUC0yNTYiLCJEIjpudWxsLCJEUCI6bnVsbCwiRFEiOm51bGwsIkUiOm51bGwsIksiOm51bGwsIktleUlkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS2V5T3BzIjpbXSwiS2lkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS3R5IjoiRUMiLCJOIjpudWxsLCJPdGgiOm51bGwsIlAiOm51bGwsIlEiOm51bGwsIlFJIjpudWxsLCJVc2UiOiJzaWciLCJYIjoiVDNCQzlQUlNkamFIcEV4VXF6Z1RpMWt5X2pvMG9YSHMtbVNoN0RsRVZFMCIsIlg1YyI6W10sIlg1dCI6bnVsbCwiWDV0UzI1NiI6bnVsbCwiWDV1IjpudWxsLCJZIjoiMjhmNEtLS0hyZ3dfM2Z4SlJsX1c0eExkcm5FUXVPQWNfZ0wyN0tNc0NSOCIsIktleVNpemUiOjI1NiwiSGFzUHJpdmF0ZUtleSI6ZmFsc2UsIkNyeXB0b1Byb3ZpZGVyRmFjdG9yeSI6eyJDcnlwdG9Qcm92aWRlckNhY2hlIjp7fSwiQ3VzdG9tQ3J5cHRvUHJvdmlkZXIiOm51bGwsIkNhY2hlU2lnbmF0dXJlUHJvdmlkZXJzIjp0cnVlfX0
+      - SUBSCRIPTION_TIERS=W3siTmFtZSI6Ik5vbmUiLCJWYWx1ZSI6MH0seyJOYW1lIjoiTWVtYmVyIiwiVmFsdWUiOjV9LHsiTmFtZSI6IkF3ZXNvbWUgTWVtYmVyIiwiVmFsdWUiOjEwfSx7Ik5hbWUiOiJCaWcgc3BlbmRlciIsIlZhbHVlIjoyMH0seyJOYW1lIjoiVGhlIEJlc3QhIiwiVmFsdWUiOjUwfSx7Ik5hbWUiOiJMb3JkIG9mIHRoZSBNYW5vciIsIlZhbHVlIjoxMDB9XQ
+    volumes:
+      - source: tmpdata/stripe/
+        target: /data
+    bindings:
+      - port: 7005
+  - name: cryptoservice
+    project: ON.Authorization/Crypto/Service/ON.Authorization.Crypto.Service.csproj
+    env:
+      - JWT_PUB_KEY=eyJBZGRpdGlvbmFsRGF0YSI6e30sIkFsZyI6IkVTMjU2IiwiQ3J2IjoiUC0yNTYiLCJEIjpudWxsLCJEUCI6bnVsbCwiRFEiOm51bGwsIkUiOm51bGwsIksiOm51bGwsIktleUlkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS2V5T3BzIjpbXSwiS2lkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS3R5IjoiRUMiLCJOIjpudWxsLCJPdGgiOm51bGwsIlAiOm51bGwsIlEiOm51bGwsIlFJIjpudWxsLCJVc2UiOiJzaWciLCJYIjoiVDNCQzlQUlNkamFIcEV4VXF6Z1RpMWt5X2pvMG9YSHMtbVNoN0RsRVZFMCIsIlg1YyI6W10sIlg1dCI6bnVsbCwiWDV0UzI1NiI6bnVsbCwiWDV1IjpudWxsLCJZIjoiMjhmNEtLS0hyZ3dfM2Z4SlJsX1c0eExkcm5FUXVPQWNfZ0wyN0tNc0NSOCIsIktleVNpemUiOjI1NiwiSGFzUHJpdmF0ZUtleSI6ZmFsc2UsIkNyeXB0b1Byb3ZpZGVyRmFjdG9yeSI6eyJDcnlwdG9Qcm92aWRlckNhY2hlIjp7fSwiQ3VzdG9tQ3J5cHRvUHJvdmlkZXIiOm51bGwsIkNhY2hlU2lnbmF0dXJlUHJvdmlkZXJzIjp0cnVlfX0
+      - SUBSCRIPTION_TIERS=W3siTmFtZSI6Ik5vbmUiLCJWYWx1ZSI6MH0seyJOYW1lIjoiTWVtYmVyIiwiVmFsdWUiOjV9LHsiTmFtZSI6IkF3ZXNvbWUgTWVtYmVyIiwiVmFsdWUiOjEwfSx7Ik5hbWUiOiJCaWcgc3BlbmRlciIsIlZhbHVlIjoyMH0seyJOYW1lIjoiVGhlIEJlc3QhIiwiVmFsdWUiOjUwfSx7Ik5hbWUiOiJMb3JkIG9mIHRoZSBNYW5vciIsIlZhbHVlIjoxMDB9XQ
+    volumes:
+      - source: tmpdata/crypto/
+        target: /data
+    bindings:
+      - name: api
+      - name: grpc
+        port: 7006
+  - name: creatordashboardservice
+    project: ON.CreatorDashboard/Service/ON.CreatorDashboard.Service.csproj
+    env:
+      - JWT_PUB_KEY=eyJBZGRpdGlvbmFsRGF0YSI6e30sIkFsZyI6IkVTMjU2IiwiQ3J2IjoiUC0yNTYiLCJEIjpudWxsLCJEUCI6bnVsbCwiRFEiOm51bGwsIkUiOm51bGwsIksiOm51bGwsIktleUlkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS2V5T3BzIjpbXSwiS2lkIjoiZjYwYjIzZDctYTdiYy00MmNjLWE0YjQtZTdiZjI0ODZiYzg5IiwiS3R5IjoiRUMiLCJOIjpudWxsLCJPdGgiOm51bGwsIlAiOm51bGwsIlEiOm51bGwsIlFJIjpudWxsLCJVc2UiOiJzaWciLCJYIjoiVDNCQzlQUlNkamFIcEV4VXF6Z1RpMWt5X2pvMG9YSHMtbVNoN0RsRVZFMCIsIlg1YyI6W10sIlg1dCI6bnVsbCwiWDV0UzI1NiI6bnVsbCwiWDV1IjpudWxsLCJZIjoiMjhmNEtLS0hyZ3dfM2Z4SlJsX1c0eExkcm5FUXVPQWNfZ0wyN0tNc0NSOCIsIktleVNpemUiOjI1NiwiSGFzUHJpdmF0ZUtleSI6ZmFsc2UsIkNyeXB0b1Byb3ZpZGVyRmFjdG9yeSI6eyJDcnlwdG9Qcm92aWRlckNhY2hlIjp7fSwiQ3VzdG9tQ3J5cHRvUHJvdmlkZXIiOm51bGwsIkNhY2hlU2lnbmF0dXJlUHJvdmlkZXJzIjp0cnVlfX0
+      - SUBSCRIPTION_TIERS=W3siTmFtZSI6Ik5vbmUiLCJWYWx1ZSI6MH0seyJOYW1lIjoiTWVtYmVyIiwiVmFsdWUiOjV9LHsiTmFtZSI6IkF3ZXNvbWUgTWVtYmVyIiwiVmFsdWUiOjEwfSx7Ik5hbWUiOiJCaWcgc3BlbmRlciIsIlZhbHVlIjoyMH0seyJOYW1lIjoiVGhlIEJlc3QhIiwiVmFsdWUiOjUwfSx7Ik5hbWUiOiJMb3JkIG9mIHRoZSBNYW5vciIsIlZhbHVlIjoxMDB9XQ
+    volumes:
+      - source: tmpdata/creatordashboard/
+        target: /data
+    bindings:
+      - name: api
+      - name: grpc
+        port: 7007
 # - name: grpc-lb
-  # dockerFile: grpc-lb/Dockerfile
-  # dockerFileContext: grpc-lb
-  # bindings:
-    # - port: 8080
-      # containerPort: 80
-      # protocol: http
+# dockerFile: grpc-lb/Dockerfile
+# dockerFileContext: grpc-lb
+# bindings:
+# - port: 8080
+# containerPort: 80
+# protocol: http
 
 registry: phillipfisher

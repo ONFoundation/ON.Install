@@ -1,0 +1,54 @@
+﻿syntax = "proto3";
+
+package ON.Fragments.CreatorDashboard.Subscribers;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/duration.proto";
+
+message Mute {
+	string Id = 1;
+	bool IsValid = 2;
+	string UserId = 3;
+	string Message = 4;
+	string Reason = 5;
+	string Length = 6;
+	string MutedBy = 7;
+	string UnmutedBy = 8;
+	google.protobuf.Timestamp DateMuted = 9;
+	google.protobuf.Duration DurationMuted = 10;
+	google.protobuf.Timestamp DateUnmuted = 11;
+}
+
+message MuteList {
+	repeated Mute Mutes = 1;
+}
+
+message GetMuteListRequest {}
+
+message GetMuteListResponse {
+	MuteList MuteList = 1;
+}
+
+message MuteRequest {
+	string UserId = 1;
+	string Length = 2;
+	string Message = 3;
+	string Reason = 4;
+	string MutedBy = 6;
+}
+
+message MuteResponse {
+	string Message = 1;
+	Mute Mute = 2;
+}
+
+message UnmuteRequest {
+	string UserId = 1;
+	string MuteId = 2;
+	string UnmutedBy = 3;
+}
+
+message UnmuteResponse {
+	string Message = 1;
+	Mute Mute = 2;
+} 

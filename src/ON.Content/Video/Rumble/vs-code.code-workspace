@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"path": "..\\SimpleCMS"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "..\\..\\ON.Authentication"
+		},
+		{
+			"path": "..\\..\\ON.Fragment"
+		}
+	],
+	"settings": {
+		"protoc": {
+			"path": "C:\\proto3\\bin\\protoc.exe"
+		}
+	}
+}

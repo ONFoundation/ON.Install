@@ -1,0 +1,30 @@
+﻿syntax = "proto3";
+
+package ON.Fragments.Content;
+
+import "google/protobuf/timestamp.proto";
+import "Protos/ON/Fragments/Content/Rumble.proto";
+
+service VideoInterface {
+	rpc GetData(GetDataRequest) returns (DataResponse);
+}
+
+message RequestOpts {
+	string Provider = 1;
+	string FID = 2;
+}
+
+message VideoProviderData {
+	RumbleData Rumble = 1;
+}
+
+message GetDataRequest {
+	RequestOpts Options = 1;
+}
+
+message DataResponse {
+	bool Success = 1;
+	string Error = 2;
+	string Msg = 3;
+	VideoProviderData Data = 4;
+}

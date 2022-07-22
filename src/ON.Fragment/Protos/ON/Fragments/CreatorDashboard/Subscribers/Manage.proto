@@ -1,0 +1,16 @@
+﻿syntax = "proto3";
+
+package ON.Fragments.CreatorDashboard.Subscribers;
+
+import "Protos/ON/Fragments/CreatorDashboard/Subscribers/Mute.proto";
+import "Protos/ON/Fragments/CreatorDashboard/Subscribers/Ban.proto";
+
+service SubscriberInterface {
+	rpc MuteSubscriber (MuteRequest) returns (MuteResponse) {}
+	rpc UnmuteSubscriber (UnmuteRequest) returns (UnmuteResponse) {}
+	rpc GetMuteList (GetMuteListRequest) returns (GetMuteListResponse) {}
+	rpc BanSubscriber (BanRequest) returns (BanResponse) {}
+	rpc UnbanSubscriber (UnbanRequest) returns (UnbanResponse) {}
+	rpc GetBanList (GetBanListRequest) returns (GetBanListResponse) {}
+}
+
